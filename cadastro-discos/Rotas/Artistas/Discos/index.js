@@ -1,26 +1,32 @@
-const roteador = require('express').Router();
-const TabelaDiscos = require('./TabelaDiscos.js');
-const Disco = require('./Discos.js');
-
+const roteador = require('express').Router({ mergeParams: true })
+const TabelaDiscos = require('./TabelaDiscos.js')
+const Disco = require('./Discos.js')
+const SerializerDisk = require('../../../serializador.js').SerializerDisk
 
 //List all discs by a given author
-roteador.get('discos', async (req, res) => {
+roteador.get('/', async (req, res) => {
     const disks = await TabelaDiscos.list(req.author.id)
-    res.status(200)
     res.send(JSON.stringify(disks))
 })
 
 //Search for a disk with a specific id
-roteador.get('discos/:id', async (req, res) => {
+roteador.get('/:idDisk', async (req, res, prox) => {
     try {
         const identifiers = {
-            id: req.params.id,
+            id: req.params.idDisk,
             author: req.author.id
         }
-
         const disk = new Disco(identifiers)
-        disk.search()
+
+        await disk.search()
         res.status(200)
+
+        const serializer = new SerializerDisk(
+            res.getHeader('Content-Type'),
+            ['creationDate']
+        )
+
+        res.send(serializer.serialize(disk))
     }
     catch (erro) {
         prox(erro)
@@ -28,11 +34,11 @@ roteador.get('discos/:id', async (req, res) => {
 })
 
 //Insert disks into the database, linking with the author id
-roteador.post('discos', async (req, res, prox) => {
+roteador.post('/', async (req, res, prox) => {
     try {
-        const idauthor = req.author.id
+        const idAuthor = req.author.id
         const body = req.body
-        const data = Object.assign({}, body, { author: idauthor })
+        const data = Object.assign({}, body, { author: idAuthor })
         const disk = new Disco(data)
         await disk.add()
         res.status(201)
@@ -44,10 +50,10 @@ roteador.post('discos', async (req, res, prox) => {
 })
 
 //Update information from a disk
-roteador.put('/discos/:id', async (req, res, prox) => {
+roteador.put('/:idDisk', async (req, res, prox) => {
     try {
         const identifiers = {
-            id: req.params.id,
+            id: req.params.idDisk,
             author: req.author.id
         }
 
@@ -64,10 +70,10 @@ roteador.put('/discos/:id', async (req, res, prox) => {
 })
 
 //Delete information from a disk
-roteador.delete('/discos/:id', async (req, res, prox) => {
+roteador.delete('/:idDisk', async (req, res, prox) => {
     try {
         const identifiers = {
-            id: req.params.id,
+            id: req.params.idDisk,
             author: req.author.id
         }
 

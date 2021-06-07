@@ -30,8 +30,9 @@ class Disco {
 
     //Search for information
     async search() {
-        const disco = await TabelaDisco.takeByID(this.id, this.author)
+        const disco = await TabelaDisco.findByID(this.id, this.author)
         this.name = disco.name
+        this.author = disco.author
         this.year = disco.year
         this.gender = disco.gender
         this.price = disco.price
@@ -55,8 +56,8 @@ class Disco {
 
     //Update information
     async update() {
-        await TabelaDisco.takeByID(this.id, this.author)
-        const fields = ['name', 'author', 'year', 'gender', 'price']
+        await TabelaDisco.findByID(this.id, this.author)
+        const fields = ['name', 'author', 'year', 'gender']
         const dataToUpdate = {}
 
         fields.forEach((field) => {

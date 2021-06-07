@@ -10,7 +10,7 @@ const tableColumns = {
         type: Sequelize.INTEGER, 
         allowNull: false,
         // references: {
-        //     model: require(''),
+        //     model: require('../ModeloTabelaArtista.js'),
         //     key: 'id'
         // }
     },

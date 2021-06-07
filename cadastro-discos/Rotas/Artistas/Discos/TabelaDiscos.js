@@ -2,14 +2,17 @@ const Model = require('./ModeloTabelaDiscos.js')
 const NotFound = require('../../../Erros/NotFound.js')
 
 module.exports = {
+    listarTudo() {
+        return Model.findAll()
+    },
 
-    list(idAuthor) {
+    async list(idAuthor) {
         return Model.findAll({
             where: { author: idAuthor }
         })
     },
 
-    async takeByID(idDisk, idAuthor) {
+    async findByID(idDisk, idAuthor) {
         const found = await Model.findOne({
             where: { id: idDisk, author: idAuthor }
         })
@@ -21,15 +24,15 @@ module.exports = {
         return found
     },
 
-    insert(data) {
+    async insert(data) {
         return Model.create(data)
     }, 
 
-    revise(idDisk, idAuthor, dataToUpdate) {
+    async revise(idDisk, dataToUpdate) {
         return Model.update(
             dataToUpdate,
             {
-                where: { id: idDisk, author: idAuthor }
+                where: { id: idDisk }
             }
         )
     },
