@@ -1,5 +1,5 @@
 const TabelaPagamentos = require('./tabelaPagamentos')
-const DadosNaoFornecidos = require('../erros/DadosNaoFornecidos')
+const DadosNaoFornecidos = require('../Errors/DadosNaoFornecidos')
 
 class Pagamentos {
     constructor ({id, nome, desconto, multiplicador}) {

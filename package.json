@@ -1,5 +1,5 @@
 {
-  "name": "cadastros-discos-pagamentos",
+  "name": "cadastros-Disks-pagamentos",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Marchalek/cadastros-discos-pagamentos.git"
+    "url": "git+https://github.com/Marchalek/cadastros-Disks-pagamentos.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Marchalek/cadastros-discos-pagamentos/issues"
+    "url": "https://github.com/Marchalek/cadastros-Disks-pagamentos/issues"
   },
-  "homepage": "https://github.com/Marchalek/cadastros-discos-pagamentos#readme",
+  "homepage": "https://github.com/Marchalek/cadastros-Disks-pagamentos#readme",
   "dependencies": {
     "axios": "^0.21.1",
     "config": "^3.3.6",

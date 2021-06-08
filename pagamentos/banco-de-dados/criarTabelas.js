@@ -1,4 +1,4 @@
-const ModeloTabela = require('../rotas/modeloTabelas')
+const ModeloTabela = require('../Routes/modeloTabelas')
 
 ModeloTabela
     .sync()

@@ -1,13 +1,13 @@
 const express = require('express')
 const app = express()
 const config = require('config')
-const Roteador = require('./Rotas/Artistas/index.js')
-const NotFound = require('./Erros/NotFound.js')
-const InvalidField = require('./Erros/InvalidField.js')
-const DataNotProvided = require('./Erros/DataNotProvided.js')
-const UnsupportedValue = require('./Erros/UnsupportedValue.js')
-const acceptedFormats = require('./serializador').acceptedFormats
-const SerializerError = require('./serializador').SerializerError
+const Router = require('./Routes/Authors/index.js')
+const NotFound = require('./Errors/NotFound.js')
+const InvalidField = require('./Errors/InvalidField.js')
+const DataNotProvided = require('./Errors/DataNotProvided.js')
+const UnsupportedValue = require('./Errors/UnsupportedValue.js')
+const acceptedFormats = require('./serializer').acceptedFormats
+const SerializerError = require('./serializer').SerializerError
 
 app.use(express.json())
 
@@ -32,7 +32,7 @@ app.use((req, res, prox) => {
     prox()
 })
 
-app.use('/api', Roteador)
+app.use('/api', Router)
 
 app.use((erro, req, res, prox) => {
     let status = 500
@@ -57,10 +57,10 @@ app.use((erro, req, res, prox) => {
     res.status(status)
     res.send(
         serializer.serialize({
-            mensagem: erro.message,
-            id: erro.idErro
+            message: erro.message,
+            id: erro.idError
         })
     )
 })
 
-app.listen(config.get('api.porta'), () => console.log("The API is connected!"))
+app.listen(config.get('api.port'), () => console.log("The API is connected!"))

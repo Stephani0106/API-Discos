@@ -1,4 +1,4 @@
-const unsupportedValue = require('./Erros/UnsupportedValue.js')
+const unsupportedValue = require('./Errors/UnsupportedValue.js')
 const jsonToXml = require('jsontoxml')
 
 class serializer {
@@ -84,10 +84,10 @@ class SerializerError extends serializer {
     constructor(contentType, extraFields) {
         super()
         this.contentType = contentType
-        this.publicFields = ['id', 'mensagem']
+        this.publicFields = ['id', 'message']
             .concat(extraFields || [])
-        this.tagSingular = 'erro'
-        this.tagPlural = 'erros'
+        this.tagSingular = 'error'
+        this.tagPlural = 'errors'
     }
 }
 

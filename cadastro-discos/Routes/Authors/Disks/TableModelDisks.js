@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize')
-const Instance = require('../../../Banco-de-Dados')
+const Instance = require('../../../Database')
 
 const tableColumns = {
     name: {
@@ -10,7 +10,7 @@ const tableColumns = {
         type: Sequelize.INTEGER, 
         allowNull: false,
         // references: {
-        //     model: require('../ModeloTabelaArtista.js'),
+        //     model: require(''),
         //     key: 'id'
         // }
     },
@@ -30,9 +30,9 @@ const tableColumns = {
 
 const settings = {
     freezeTableName: true,
-    tableName: 'discos',
+    tableName: 'Disks',
     timestamps: true,
     createdAt: 'creationDate'
 };
 
-module.exports = Instance.define('disco', tableColumns, settings)
+module.exports = Instance.define('disk', tableColumns, settings)

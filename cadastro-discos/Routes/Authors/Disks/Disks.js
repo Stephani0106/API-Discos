@@ -1,8 +1,8 @@
-const TabelaDisco = require('./TabelaDiscos.js')
-const DataNotProvided = require('../../../Erros/DataNotProvided.js')
-const InvalidField = require('../../../Erros/InvalidField.js')
+const TableDisk = require('./TableDisks.js')
+const DataNotProvided = require('../../../Errors/DataNotProvided.js')
+const InvalidField = require('../../../Errors/InvalidField.js')
 
-class Disco {
+class Disk {
     constructor({ id, name, author, year, gender, price, creationDate }) {
         this.id = id 
         this.name = name
@@ -30,7 +30,7 @@ class Disco {
 
     //Search for information
     async search() {
-        const disco = await TabelaDisco.findByID(this.id, this.author)
+        const disk = await TableDisk.findByID(this.id, this.author)
         this.name = disco.name
         this.author = disco.author
         this.year = disco.year
@@ -42,7 +42,7 @@ class Disco {
     //Forward the information that must be added
     async add() {
         this.validate()
-        const result = await TabelaDisco.insert({
+        const result = await TableDisk.insert({
             name: this.name,
             author: this.author,
             year: this.year,
@@ -56,7 +56,7 @@ class Disco {
 
     //Update information
     async update() {
-        await TabelaDisco.findByID(this.id, this.author)
+        await TableDisk.findByID(this.id, this.author)
         const fields = ['name', 'author', 'year', 'gender']
         const dataToUpdate = {}
 
@@ -72,13 +72,13 @@ class Disco {
             throw new DataNotProvided()
         }
 
-        await TabelaDisco.revise(this.id, dataToUpdate)
+        await TableDisk.revise(this.id, dataToUpdate)
     }
 
     //Forwards the reference of what should be deleted
     remove() {
-        return TabelaDisco.delete(this.id, this.author)
+        return TableDisk.delete(this.id, this.author)
     }
 }
 
-module.exports = Disco
+module.exports = Disk

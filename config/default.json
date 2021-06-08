@@ -1,11 +1,11 @@
 {
     "mysql" : {
-        "banco-de-dados": "discos",
-        "usuario": "root",
-        "senha": "senha",
+        "database": "Disks",
+        "user": "root",
+        "password": "senha",
         "host": "127.0.0.1"
     },
     "api" : {
-        "porta": "3000"
+        "port": "3000"
     }
 }

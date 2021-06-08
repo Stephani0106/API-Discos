@@ -1,8 +1,8 @@
-const Model = require('./ModeloTabelaDiscos.js')
-const NotFound = require('../../../Erros/NotFound.js')
+const Model = require('./TableModelDisks.js')
+const NotFound = require('../../../Errors/NotFound.js')
 
 module.exports = {
-    listarTudo() {
+    listAll() {
         return Model.findAll()
     },
 

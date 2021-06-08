@@ -3,9 +3,9 @@ const config = require('config')
 
 //Defines the connection settings through Sequelize, getting the information from a separate file (config/default.json)
 const instance = new Sequelize(
-    config.get('mysql.banco-de-dados'),
-    config.get('mysql.usuario'),
-    config.get('mysql.senha'),
+    config.get('mysql.database'),
+    config.get('mysql.user'),
+    config.get('mysql.password'),
     {
         host: config.get('mysql.host'),
         dialect: 'mysql'

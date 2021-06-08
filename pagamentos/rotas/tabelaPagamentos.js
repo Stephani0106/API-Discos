@@ -1,5 +1,5 @@
 const Modelo = require('./modeloTabelas')
-const NaoEncontrado = require('../erros/NaoEncontrado')
+const NaoEncontrado = require('../Errors/NaoEncontrado')
 module.exports = {
     listar() {
         return Modelo.findAll()

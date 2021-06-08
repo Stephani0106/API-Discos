@@ -1,4 +1,4 @@
-const Model = require('../Rotas/Artistas/Discos/ModeloTabelaDiscos.js')
+const Model = require('../Routes/Authors/Disks/TableModelDisks.js')
 
 Model
     //Synchronizes with database
