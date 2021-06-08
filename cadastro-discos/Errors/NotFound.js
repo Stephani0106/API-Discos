@@ -2,7 +2,7 @@ class NotFound extends Error {
     constructor() {
         super("Disk not found!")
         this.name = 'NotFound'
-        this.idErro = 2
+        this.idError = 2
     }
 }
 

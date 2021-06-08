@@ -31,12 +31,12 @@ class Disk {
     //Search for information
     async search() {
         const disk = await TableDisk.findByID(this.id, this.author)
-        this.name = disco.name
-        this.author = disco.author
-        this.year = disco.year
-        this.gender = disco.gender
-        this.price = disco.price
-        this.creationDate = disco.creationDate
+        this.name = disk.name
+        this.author = disk.author
+        this.year = disk.year
+        this.gender = disk.gender
+        this.price = disk.price
+        this.creationDate = disk.creationDate
     }
 
     //Forward the information that must be added
