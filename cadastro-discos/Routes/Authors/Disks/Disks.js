@@ -30,7 +30,11 @@ class Disk {
 
     //Search for information
     async search() {
-        const disk = await TableDisk.findByID(this.id, this.author)
+        //TODO: Descomentar quando houver vínculo com o artista
+        // const disk = await TableDisk.findByID(this.id, this.author)
+        //TODO: apagar quando houver vínculo com o artista
+        const disk = await TableDisk.findByID(this.id)
+
         this.name = disk.name
         this.author = disk.author
         this.year = disk.year
@@ -56,7 +60,11 @@ class Disk {
 
     //Update information
     async update() {
-        await TableDisk.findByID(this.id, this.author)
+        //TODO: Descomentar quando houver vínculo com o artista
+        // await TableDisk.findByID(this.id, this.author)
+        //TODO: Apagar quando houver vínculo com o artista
+        await TableDisk.findByID(this.id)
+
         const fields = ['name', 'author', 'year', 'gender']
         const dataToUpdate = {}
 
@@ -77,7 +85,10 @@ class Disk {
 
     //Forwards the reference of what should be deleted
     remove() {
-        return TableDisk.delete(this.id, this.author)
+        //TODO: Descomentar quando houver vínculo com o artista
+        // return TableDisk.delete(this.id, this.author)
+        //TODO: Apagar quando houver vínculo com o artista
+        return TableDisk.delete(this.id)
     }
 }
 

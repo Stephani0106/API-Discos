@@ -6,13 +6,19 @@ const tableColumns = {
         type: Sequelize.STRING,
         allowNull: false
     },
-    author: {    //Deve receber o ID do autor
-        type: Sequelize.INTEGER, 
-        allowNull: false,
-        // references: {
-        //     model: require(''),
-        //     key: 'id'
-        // }
+    //TODO: Descomentar quando houver vínculo com o artista
+    // author: {    //Deve receber o ID do autor
+    //     type: Sequelize.INTEGER, 
+    //     allowNull: false,
+    //     references: {
+    //         model: require(''),
+    //         key: 'id'
+    //     }
+    // },
+    //TODO: Apagar quando houver vínculo com o artista
+    author: {
+        type: Sequelize.STRING,
+        allowNull: false
     },
     year: {
         type: Sequelize.STRING,

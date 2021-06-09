@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const config = require('config')
-const Router = require('./Routes/Authors/index.js')
+const Router = require('./Routes/Authors/Disks/index.js') //TODO: Alterar o arquivo quando houver vínculo com o artista
 const NotFound = require('./Errors/NotFound.js')
 const InvalidField = require('./Errors/InvalidField.js')
 const DataNotProvided = require('./Errors/DataNotProvided.js')

@@ -1,22 +1,34 @@
-const router = require('express').Router({ mergeParams: true })
+const Router = require('express').Router({ mergeParams: true })
 const tableDisk = require('./TableDisks.js')
 const Disk = require('./Disks.js')
 const SerializerDisk = require('../../../serializer.js').SerializerDisk
 
 //List all discs by a given author
-router.get('/', async (req, res) => {
-    const disks = await tableDisk.list(req.author.id)
-    res.send(JSON.stringify(disks))
+//TODO: Descomentar quando houver vínculo com o artista
+// router.get('/', async (req, res) => {
+//     const disks = await tableDisk.list(req.author.id)
+//     res.send(JSON.stringify(disks))
+// })
+
+//TODO: Apagar quando houver vínculo com o artista
+//List all discs 
+Router.get('/discos', async (req, res) => {
+    const results = await tableDisk.listAll()
+    res.send(JSON.stringify(results))
 })
 
 //Search for a disk with a specific id
-router.get('/:idDisk', async (req, res, prox) => {
+Router.get('/:idDisk', async (req, res, prox) => {
     try {
-        const identifiers = {
-            id: req.params.idDisk,
-            author: req.author.id
-        }
-        const disk = new Disk(identifiers)
+        //TODO: Descomentar quando houver vínculo com o artista  
+        // const identifiers = {
+        //     id: req.params.idDisk,
+        //     author: req.author.id
+        // }
+        //TODO: Apagar quando houver vínculo com o artista
+        const identifiers = req.params.idDisk
+        // const disk = new Disk(identifiers)
+        const disk = new Disk({ id: identifiers })
 
         await disk.search()
         res.status(200)
@@ -34,12 +46,15 @@ router.get('/:idDisk', async (req, res, prox) => {
 })
 
 //Insert disks into the database, linking with the author id
-router.post('/', async (req, res, prox) => {
+Router.post('/', async (req, res, prox) => {
     try {
-        const idAuthor = req.author.id
+        //TODO: Descomentar linhas abaixo quando houver vínculo com o artista
+        // const idAuthor = req.author.id
         const body = req.body
-        const data = Object.assign({}, body, { author: idAuthor })
-        const disk = new Disk(data)
+        // const data = Object.assign({}, body, { author: idAuthor })
+        // const disk = new Disk(data)
+        //TODO: Apagar quando houver vínculo com o artista
+        const disk = new Disk(body)
         await disk.add()
         res.status(201)
         res.send(disk)
@@ -50,15 +65,19 @@ router.post('/', async (req, res, prox) => {
 })
 
 //Update information from a disk
-router.put('/:idDisk', async (req, res, prox) => {
+Router.put('/:idDisk', async (req, res, prox) => {
     try {
-        const identifiers = {
-            id: req.params.idDisk,
-            author: req.author.id
-        }
-
+        //TODO: Descomentar linhas abaixo quando houver vínculo com o artista
+        // const identifiers = {
+        //     id: req.params.idDisk,
+        //     author: req.author.id
+        // }
+        //TODO: Apagar quando houver vínculo com o artista
+        const id = req.params.idDisk
         const body = req.body
-        const data = Object.assign({}, body, identifiers)
+        // const data = Object.assign({}, body, identifiers)
+        //TODO: Apagar quando houver vínculo com o artista
+        const data = Object.assign({}, body, { id: id })
         const disk = new Disk(data)
         await disk.update()
         res.status(204)
@@ -70,14 +89,18 @@ router.put('/:idDisk', async (req, res, prox) => {
 })
 
 //Delete information from a disk
-router.delete('/:idDisk', async (req, res, prox) => {
+Router.delete('/:idDisk', async (req, res, prox) => {
     try {
-        const identifiers = {
-            id: req.params.idDisk,
-            author: req.author.id
-        }
-
-        const disk = new Disk(identifiers)
+        //TODO: Descomentar linhas abaixo quando houver vínculo com o artista
+        // const identifiers = {
+        //     id: req.params.idDisk,
+        //     author: req.author.id
+        // }
+        //TODO: Apagar quando houver vínculo com o artista
+        const id = req.params.idDisk
+        // const disk = new Disk(identifiers)
+        //TODO: Apagar quando houver vínculo com o artista
+        const disk = new Disk({ id: id })
         await disk.remove()
         res.status(204)
         res.end()
@@ -87,4 +110,4 @@ router.delete('/:idDisk', async (req, res, prox) => {
     }
 })
 
-module.exports = router
+module.exports = Router
