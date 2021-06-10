@@ -73,7 +73,7 @@ class SerializerDisk extends serializer {
     constructor(contentType, extraFields) {
         super()
         this.contentType = contentType
-        this.publicFields = ['id', 'name', 'gender', 'year', 'price']
+        this.publicFields = ['id', 'name', 'author', 'gender', 'year', 'price']
             .concat(extraFields || [])
         this.tagSingular = 'disk'
         this.tagPlural = 'disks'

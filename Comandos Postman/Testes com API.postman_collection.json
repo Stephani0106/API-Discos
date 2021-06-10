@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "19a9dbbf-bdeb-49c5-aac9-c634b719949d",
-		"name": "Testes com API",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"_postman_id": "de23d154-a7ab-46b9-9c60-61c1101c370e",
+		"name": "API discos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Rotas",
+			"name": "Testes",
 			"item": [
 				{
 					"name": "Listar todos os discos cadastrados",
@@ -25,17 +25,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "localhost:3000/api/discos",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"discos"
-							]
-						}
+						"url": "localhost:3000/api/discos"
 					},
 					"response": []
 				},
@@ -56,17 +46,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "localhost:3000/api/7",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"7"
-							]
-						}
+						"url": "localhost:3000/api/discos/10"
 					},
 					"response": []
 				},
@@ -77,24 +57,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"California\",\r\n    \"author\": \"blink-182\",\r\n    \"year\": \"2016\",\r\n    \"gender\": \"Rock\",\r\n    \"price\": 29.99\r\n}",
+							"raw": "{\r\n    \"name\": \"Arrocha da galera\",\r\n    \"author\": \"Barões da Pisadinha\",\r\n    \"year\": \"2021\",\r\n    \"gender\": \"Sertenejo\",\r\n    \"price\": 29.99\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "localhost:3000/api/",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								""
-							]
-						}
+						"url": "localhost:3000/api/discos"
 					},
 					"response": []
 				},
@@ -105,24 +75,14 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"author\": \"blink 182\"\r\n}",
+							"raw": "{\r\n    \"gender\": \"Brega Funk\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
 								}
 							}
 						},
-						"url": {
-							"raw": "localhost:3000/api/2",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"2"
-							]
-						}
+						"url": "localhost:3000/api/discos/10"
 					},
 					"response": []
 				},
@@ -140,17 +100,7 @@
 								}
 							}
 						},
-						"url": {
-							"raw": "localhost:3000/api/1",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"1"
-							]
-						}
+						"url": "localhost:3000/api/discos/10"
 					},
 					"response": []
 				}

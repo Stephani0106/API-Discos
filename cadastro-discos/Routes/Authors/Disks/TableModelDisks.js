@@ -6,7 +6,6 @@ const tableColumns = {
         type: Sequelize.STRING,
         allowNull: false
     },
-    //TODO: Descomentar quando houver vínculo com o artista
     // author: {    //Deve receber o ID do autor
     //     type: Sequelize.INTEGER, 
     //     allowNull: false,
@@ -15,7 +14,6 @@ const tableColumns = {
     //         key: 'id'
     //     }
     // },
-    //TODO: Apagar quando houver vínculo com o artista
     author: {
         type: Sequelize.STRING,
         allowNull: false
@@ -38,7 +36,8 @@ const settings = {
     freezeTableName: true,
     tableName: 'Disks',
     timestamps: true,
-    createdAt: 'creationDate'
+    createdAt: 'creationDate',
+    updatedAt: 'updatedDate'
 };
 
 module.exports = Instance.define('disk', tableColumns, settings)

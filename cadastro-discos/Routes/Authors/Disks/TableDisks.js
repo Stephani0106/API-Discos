@@ -6,18 +6,12 @@ module.exports = {
         return Model.findAll()
     },
 
-    async list(idAuthor) {
-        return Model.findAll({
-            where: { author: idAuthor }
-        })
-    },
-
-    //TODO: Descomentar quando houver vínculo com o artista
-    // async findByID(idDisk, idAuthor) {
-    //     const found = await Model.findOne({
-    //         where: { id: idDisk, author: idAuthor }
+    // async list(idAuthor) {
+    //     return Model.findAll({
+    //         where: { author: idAuthor }
     //     })
-    //TODO: Apagar quando houver vínculo com o artista
+    // },
+
     async findByID(idDisk) {
         const found = await Model.findOne({
             where: { id: idDisk }
@@ -43,13 +37,6 @@ module.exports = {
         )
     },
 
-    //TODO: Descomentar quando houver vínculo com o artista
-    // delete(idDisk, idAuthor) {
-    //     return Model.destroy({
-    //         where: { id: idDisk, author: idAuthor }
-    //     })
-    // }
-    //TODO: Apagar quando houver vínculo com o artista
     delete(idDisk) {
         return Model.destroy({
             where: { id: idDisk }
